@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "verify-evidence-on-save",
+  "description": "After any save under src/ or mcp/, run typecheck and tests. Failing checks must surface verbose evidence so the agent can self-correct. Success stays silent.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["src/**/*.ts", "mcp/**/*.mjs", "test/**/*.ts"]
+  },
+  "then": {
+    "type": "command",
+    "command": "npm run check && npm test"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "submission-preflight",
+  "description": "Before any commit touching submission materials, run the automated preflight: kiro dir integrity, license presence, secrets scan, test suite, build. Blocks (exit 2) on any failure.",
+  "version": "1",
+  "when": {
+    "type": "userPromptSubmitted",
+    "patterns": ["commit", "submit", "preflight", "提交"]
+  },
+  "then": {
+    "type": "command",
+    "command": "node scripts/preflight.mjs"
+  }
+}
