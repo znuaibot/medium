@@ -1,0 +1,16 @@
+npm notice run medium-glass-seance@0.1.0 pbt
+npm notice run node --test test/pbt.evidence.test.ts
+✔ P1: validator never throws, whatever the claim says (bounds safety) (484.1981ms)
+✔ P2: flipping any single observed byte breaks the evidence (tamper detection) (411.5717ms)
+✔ P3: citing a nonexistent evidence id is always rejected (363.8192ms)
+✔ P4: ledger export/import round-trip is stable (hash preserved) (386.7699ms)
+✔ P5: unknown status survives any evidence chaos (honesty is stable) (376.9613ms)
+✔ P6: same input yields the same verdict (deterministic gate) (422.3417ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2625.1992

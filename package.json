@@ -11,12 +11,13 @@
   "scripts": {
     "check": "tsc --noEmit",
     "test": "npm run check && node --test test/",
-    "pbt": "node --test test/pbt.evidence.test.ts test/pbt.vm.test.ts",
+    "pbt": "node --test test/pbt.evidence.test.ts",
     "build": "node scripts/build.mjs",
     "e2e": "node scripts/e2e.mjs",
     "preflight": "node scripts/preflight.mjs"
   },
   "devDependencies": {
+    "@types/node": "^26.0.0",
     "esbuild": "^0.25.0",
     "fast-check": "^4.0.0",
     "typescript": "^5.6.0"
