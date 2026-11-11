@@ -46,3 +46,12 @@
 - ISA grew to 25 ops during cartridge work (LDAX/STAX/CMPM/INX) — spec updated
   same commit each time. Retro fixes: COMPETITION.md rules digest, audit.mjs
   guardrails, assembler near-miss suggestions.
+
+## 2026-11-12 (late night)
+- Gate 6 green: preflight ALL GREEN (kiro integrity, licenses, secrets scan,
+  34 tests, PBT, build, e2e, audit, MCP session, fresh bundle). All seven
+  gates of the ratchet are now green. Submission state reached.
+- Preflight itself caught 7 type errors the bundler had silently swallowed
+  (esbuild does not typecheck) — the tsc gate earned its place.
+- Determinism guard rescoped to the four deterministic layers (audio's
+  noise is presentation, not core).

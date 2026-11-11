@@ -1,0 +1,9 @@
+séance[cheat-code]: verified — The passcode is not a string — it is one byte at 0x140: 0x57, the lett…
+PASS: crypt-keeper cheat-code answers verified
+PASS: evidence cites 0x0140
+trap: EVIDENCE_NOT_FOUND — cited evidence E-999 does not exist in the ledger…
+PASS: forged claim intercepted with receipt
+séance[corrupted-region]: unknown — Sector two at 0x840 reads as 32 zero bytes (00000000000000000000000000…
+PASS: telemetry dead sector answers unknown (honesty)
+PASS: coroner finds strings in the artifact (1)
+PASS: exorcism gate rejects a claim citing absent evidence

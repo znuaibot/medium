@@ -56,7 +56,7 @@ export function createMemoryGrid(
   canvas.height = 64 * CELL + 8;
   const ctx = canvas.getContext("2d")!;
   const hotCells = new Map<number, string>();
-  let memRef = new Uint8Array(4096);
+  let memRef: Uint8Array = new Uint8Array(4096);
 
   canvas.addEventListener("click", (e) => {
     const r = canvas.getBoundingClientRect();
@@ -76,7 +76,7 @@ export function createMemoryGrid(
       const row = Math.floor(addr / COLS2);
       const x = 4 + col * CELL;
       const y = 4 + row * CELL;
-      const b = mem[addr]!;
+      const b = mem[addr] ?? 0;
       if (hotCells.has(addr)) {
         ctx.fillStyle = "#EFE6C8"; // candle glow highlight
         ctx.fillRect(x, y, CELL - 1, CELL - 1);

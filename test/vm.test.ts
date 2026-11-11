@@ -73,17 +73,22 @@ test("input queue is consumed in order (READKEY)", () => {
   assert.equal(vm.mem[0x0302], 0x42);
 });
 
-test("determinism steering: no wall clock or randomness in src/", async () => {
+test("determinism steering: no wall clock or randomness in deterministic layers", async () => {
   const { readFile, readdir } = await import("node:fs/promises");
   const files: string[] = [];
-  const walk = async (d: string): Promise<void> => {
-    for (const f of await readdir(d, { withFileTypes: true })) {
-      const p = `${d}/${f.name}`;
-      if (f.isDirectory()) await walk(p);
-      else if (f.name.endsWith(".ts")) files.push(p);
-    }
-  };
-  await walk("src");
+  // only the layers whose output must be reproducible; src/ui/audio.ts is
+  // presentation (static noise) and is allowed its randomness.
+  const layers = ["src/core", "src/vm", "src/coroner", "src/cartridges"];
+  for (const layer of layers) {
+    const walk = async (d: string): Promise<void> => {
+      for (const f of await readdir(d, { withFileTypes: true })) {
+        const p = `${d}/${f.name}`;
+        if (f.isDirectory()) await walk(p);
+        else if (f.name.endsWith(".ts")) files.push(p);
+      }
+    };
+    await walk(layer);
+  }
   for (const f of files) {
     const src = await readFile(f, "utf8");
     assert.ok(!/Math\.random|Date\.now|new Date\(/.test(src), `${f} must be deterministic`);

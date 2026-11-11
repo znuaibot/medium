@@ -33,7 +33,7 @@ Status date: 2026-11-12. Deadline: 2026-12-04 14:00 PT. Feature freeze: 2026-12-
       verified claim -> forged claim intercepted (exit 0, log archived)
 
 ## Gate 3 — MCP server  [ ] open
-- [ ] mcp/seance-mcp-server.mjs (<=180 lines): inspect_artifact, read_vm_memory,
+- [x] mcp/seance-mcp-server.mjs (zero-dep, 4 tools): inspect_artifact, read_vm_memory,
       search_memory_strings, verify_ghost_claim
 - [ ] Verification: scripts/test-mcp.mjs real request/response, log to
       docs/kiro/evidence/mcp-session.log

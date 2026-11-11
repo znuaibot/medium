@@ -5,6 +5,7 @@
 import { Ledger, type Claim, type EvidenceRecord, type ExorcismReceipt } from "../core/ledger.ts";
 import { validateClaimAgainstSnapshot, type Snapshot } from "../core/validator.ts";
 import type { Cartridge } from "../cartridges/index.ts";
+import type { GlassVm } from "../vm/glass-vm.ts";
 import { sha256Hex } from "../core/hash.ts";
 
 export interface TranscriptEntry {
@@ -20,11 +21,13 @@ export class MediumEngine {
   readonly ledger = new Ledger();
   private seq = 1;
   private claims = 1;
+  private readonly cart: Cartridge;
+  private readonly vm: GlassVm;
 
-  constructor(
-    private readonly cart: Cartridge,
-    private readonly vm: GlassVm,
-  ) {}
+  constructor(cart: Cartridge, vm: GlassVm) {
+    this.cart = cart;
+    this.vm = vm;
+  }
 
   snapshot(): Snapshot {
     return { hash: this.vm.snapshotHash(), artifactHash: this.artifactHash(), bytes: this.vm.mem };
@@ -70,13 +73,15 @@ export class MediumEngine {
     const claim: Claim = {
       id: `C-${String(this.claims++).padStart(3, "0")}`,
       text, status: entry.status, evidenceIds: ids, createdAt: "this-séance",
-      inferenceStep: entry.inferenceStep,
     };
+    if (entry.inferenceStep !== undefined) claim.inferenceStep = entry.inferenceStep;
     const r = validateClaimAgainstSnapshot(claim, this.ledger, this.snapshot());
     if (!r.ok) {
       // The deterministic engine cannot lie — but if it ever did, the gate
       // would catch it here. Surfaced, never swallowed.
-      return { claimId: claim.id, intent, status: "unknown", text: claim.text, evidence, receipt: r.receipt };
+      const out: TranscriptEntry = { claimId: claim.id, intent, status: "unknown", text: claim.text, evidence };
+      out.receipt = r.receipt;
+      return out;
     }
     return { claimId: claim.id, intent, status: entry.status, text: claim.text, evidence };
   }
@@ -89,12 +94,13 @@ export class MediumEngine {
       status: "verified", evidenceIds: ["E-999"], createdAt: "trap",
     };
     const r = validateClaimAgainstSnapshot(forged, this.ledger, this.snapshot());
-    const receipt = r.ok ? undefined : r.receipt;
-    return {
+    const out: TranscriptEntry = {
       claimId: forged.id, intent: "hallucination-trap", status: "unknown",
       text: "[intercepted] The claim above cited evidence that does not exist. The gate blocked it before it reached you.",
-      evidence: [], receipt,
+      evidence: [],
     };
+    if (!r.ok) out.receipt = r.receipt;
+    return out;
   }
 
   unknown(text: string): TranscriptEntry {

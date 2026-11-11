@@ -131,7 +131,7 @@ function init(): void {
     inspector.querySelector(".insp-hex")!.textContent = b.toString(16).padStart(2, "0");
     inspector.querySelector(".insp-ascii")!.textContent = b >= 32 && b < 127 ? String.fromCharCode(b) : "·";
     inspector.querySelector(".insp-note")!.textContent = "live memory cell — click any evidence chip to jump here";
-  });
+  }).render;
   const switcher = $("switcher");
   for (const cart of CARTS) {
     const b = document.createElement("button");

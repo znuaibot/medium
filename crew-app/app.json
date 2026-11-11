@@ -1,0 +1,11 @@
+{
+  "name": "software-coroner",
+  "displayName": "Software Coroner",
+  "version": "0.1.0",
+  "description": "A Kiro Crew app: a Coroner bot that performs static autopsies of dead files and returns evidence-backed findings (offsets, strings, entropy) through the MEDIUM seance MCP tools.",
+  "author": { "name": "The MEDIUM contributors" },
+  "license": "MIT",
+  "entry": "./skills/software-coroner/SKILL.md",
+  "tools": { "mcp": "seance-mcp-server" },
+  "kiro": { "crew": true, "minVersion": "2026.11" }
+}

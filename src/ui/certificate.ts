@@ -26,7 +26,7 @@ export function certificateHtml(archive: object, cart: { id: string; title: stri
   }).join("\n");
   const claimRows = a.ledger.claims.map((c) => {
     const ids = (c.evidenceIds as string[]).join(", ") || "—";
-    return `<tr class="claim-${esc(c.status)}"><td>${esc(c.status.toUpperCase())}</td><td>${esc(c.text)}</td><td>${esc(ids)}</td></tr>`;
+    return `<tr class="claim-${esc(String(c.status))}"><td>${esc(String(c.status).toUpperCase())}</td><td>${esc(c.text)}</td><td>${esc(ids)}</td></tr>`;
   }).join("\n");
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">

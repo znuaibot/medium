@@ -9,6 +9,6 @@
   },
   "then": {
     "type": "command",
-    "command": "node scripts/preflight.mjs"
+    "command": "node scripts/preflight.ts"
   }
 }
