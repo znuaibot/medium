@@ -60,6 +60,6 @@ Status date: 2026-11-12. Deadline: 2026-12-04 14:00 PT. Feature freeze: 2026-12-
 - [ ] Verification: `npm run preflight` all green
 
 ## Post-gates (do not start before Gate 6 is green)
-- [ ] Recording + editing + voiceover (target 2:20-2:40)
-- [ ] Devpost submission draft saved; final submit before 2026-12-04 14:00 PT
+- [x] Recording + editing + voiceover (117s CDP-frame capture, SAPI narration)
+- [x] Devpost SUBMITTED (draft->live): devpost.com/software/o-5evmb3
 - [ ] Blog post (blog bonus) + social post starting with #KiroweenHackathon26

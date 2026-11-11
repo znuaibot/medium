@@ -55,3 +55,13 @@
   (esbuild does not typecheck) — the tsc gate earned its place.
 - Determinism guard rescoped to the four deterministic layers (audio's
   noise is presentation, not core).
+
+## 2026-11-12 (final)
+- **SUBMITTED.** Devpost project page live: devpost.com/software/o-5evmb3
+  (name/tagline/story/tags/Built-with/category Resurrection/GitHub/demo URL/
+  Kiro technology write-up/disclosure/crew-app bonus/Country=United States/
+  eligibility attestations, all per operator instruction).
+- Demo video: produced (117s, CDP-frame capture + SAPI narration), uploaded to
+  YouTube (c1W0nb-_lOk), linked in the submission. NOTE: currently PRIVATE —
+  must be flipped to Public in YouTube Studio (one manual step).
+- Remaining manual items: YouTube -> Public; Kiro credits request (Dec 1).
