@@ -1,0 +1,91 @@
+/* style.css — 1-bit instrument aesthetic. Retro skin, modern use.
+   Tokens per .kiro/steering/aesthetic-1bit.md */
+:root {
+  --paper: #F4F1EA;
+  --ink: #141413;
+  --dim: #5A564D;
+  --glow: #EFE6C8;
+  --seal: #7A1F1F;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0;
+  line-height: 1.5;
+}
+.mono { font-family: ui-monospace, "Courier New", monospace; }
+
+.parlor-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 1.2rem 1.5rem 0.6rem; border-bottom: 3px double var(--ink);
+}
+.parlor-head h1 { margin: 0; font-variant: small-caps; letter-spacing: 0.14em; font-size: 2rem; }
+.tagline { margin: 0; color: var(--dim); font-style: italic; font-size: 0.92rem; }
+.head-controls { display: flex; gap: 1rem; align-items: center; }
+.mute-label { font-size: 0.85rem; color: var(--dim); }
+.ghost-btn {
+  background: none; border: 2px solid var(--ink); color: var(--ink);
+  font-family: inherit; font-variant: small-caps; letter-spacing: 0.08em;
+  padding: 0.3rem 0.9rem; cursor: pointer;
+}
+.ghost-btn:hover { background: var(--ink); color: var(--paper); }
+
+.switcher { display: flex; gap: 0.5rem; padding: 0.7rem 1.5rem; flex-wrap: wrap; }
+.cart-btn, .intent-btn {
+  background: none; border: 1px solid var(--ink); color: var(--ink);
+  font-family: ui-monospace, "Courier New", monospace; font-size: 0.8rem;
+  padding: 0.25rem 0.7rem; cursor: pointer;
+}
+.cart-btn:hover, .intent-btn:hover { background: var(--glow); }
+.intent-trap { border-color: var(--seal); color: var(--seal); }
+.intent-trap:hover { background: var(--seal); color: var(--paper); }
+
+.instrument {
+  display: grid; grid-template-columns: 1.1fr 1fr 1.2fr; gap: 1rem; padding: 0 1.5rem;
+}
+@media (max-width: 900px) { .instrument { grid-template-columns: 1fr; } }
+.panel { border: 2px solid var(--ink); padding: 0.8rem; min-width: 0; }
+.panel-title { margin: 0 0 0.4rem; font-variant: small-caps; letter-spacing: 0.1em; font-size: 1.05rem; }
+.panel-note, .drop-hint, .cart-origin { color: var(--dim); font-size: 0.8rem; margin: 0.15rem 0 0.5rem; }
+.cart-title { font-weight: bold; margin: 0.1rem 0; font-variant: small-caps; letter-spacing: 0.06em; }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 1px solid var(--ink); background: var(--paper); }
+
+.intents { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+
+.transcript { min-height: 15rem; max-height: 22rem; overflow-y: auto; padding-right: 0.3rem; }
+.se-entry { border: 1px solid var(--ink); padding: 0.5rem 0.7rem; margin-bottom: 0.6rem; }
+.se-q { color: var(--dim); font-style: italic; font-size: 0.82rem; }
+.se-head { display: flex; gap: 0.5rem; align-items: baseline; margin: 0.2rem 0; }
+.se-id { font-family: ui-monospace, "Courier New", monospace; font-size: 0.75rem; color: var(--dim); }
+.badge { font-family: ui-monospace, "Courier New", monospace; font-size: 0.68rem; letter-spacing: 0.1em; padding: 0.05rem 0.4rem; border: 1px solid; }
+.badge-verified { color: var(--ink); border-color: var(--ink); background: var(--glow); }
+.badge-inferred { color: var(--ink); border-color: var(--dim); border-style: dashed; }
+.badge-unknown { color: var(--paper); border-color: var(--dim); background: var(--dim); }
+.se-body { font-size: 0.92rem; }
+.se-unknown .se-body { color: var(--dim); font-style: italic; }
+.se-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+.evidence-chip {
+  background: var(--glow); border: 1px solid var(--ink); color: var(--ink);
+  font-family: ui-monospace, "Courier New", monospace; font-size: 0.72rem;
+  padding: 0.1rem 0.4rem; cursor: pointer;
+}
+.evidence-chip:hover { background: var(--ink); color: var(--glow); }
+
+.gate-head { font-variant: small-caps; letter-spacing: 0.1em; font-size: 0.85rem;
+  border-top: 1px solid var(--ink); padding-top: 0.4rem; margin-top: 0.6rem; }
+.gate-log { font-size: 0.72rem; color: var(--seal); max-height: 6rem; overflow-y: auto; }
+.gate-log-entry { border-bottom: 1px dotted var(--seal); padding: 0.15rem 0; }
+.coroner { margin-top: 0.5rem; }
+.coroner-body { font-size: 0.85rem; }
+.hidden { display: none; }
+.inspector { margin-top: 0.5rem; border: 1px dashed var(--ink); padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+.insp-row { margin: 0.1rem 0; }
+.insp-note { color: var(--dim); font-size: 0.72rem; }
+
+.parlor-foot { padding: 0.8rem 1.5rem 1.5rem; color: var(--dim); font-size: 0.85rem; font-style: italic; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

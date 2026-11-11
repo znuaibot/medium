@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEDIUM — The Glass Séance</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="parlor-head">
+  <div>
+    <h1>MEDIUM</h1>
+    <p class="tagline">a verifiable séance for forgotten software — every claim checkable, byte by byte</p>
+  </div>
+  <div class="head-controls">
+    <label class="mute-label"><input type="checkbox" id="mute"> silence the dead</label>
+    <button id="export" class="ghost-btn">Export Certificate</button>
+  </div>
+</header>
+
+<div class="switcher" id="switcher" aria-label="cartridge selector"></div>
+
+<main class="instrument">
+  <section class="panel" aria-label="the vessel">
+    <h2 class="panel-title">The Vessel</h2>
+    <p class="cart-title" id="cart-title"></p>
+    <p class="cart-origin" id="cart-origin"></p>
+    <canvas id="screen" width="592" height="272"></canvas>
+    <p class="drop-hint">…or drop any dead file anywhere on this page for a séance</p>
+    <div class="intents" id="intents"></div>
+  </section>
+
+  <section class="panel" aria-label="live memory">
+    <h2 class="panel-title">Live Memory</h2>
+    <p class="panel-note">4096 bytes · ink density is the value · candle glow marks cited evidence</p>
+    <canvas id="memgrid" width="520" height="520"></canvas>
+    <div id="inspector" class="inspector hidden">
+      <div class="insp-row"><span class="insp-addr mono"></span></div>
+      <div class="insp-row mono insp-hex"></div>
+      <div class="insp-row mono insp-ascii"></div>
+      <div class="insp-row insp-note"></div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="seance chamber">
+    <h2 class="panel-title">The Séance Chamber</h2>
+    <div id="transcript" class="transcript" aria-live="polite"></div>
+    <div class="gate-head">Exorcist Gate log</div>
+    <div id="gate-log" class="gate-log mono" aria-live="polite"></div>
+    <div id="coroner-report" class="coroner hidden">
+      <div class="gate-head" id="coroner-title"></div>
+      <div id="coroner-body" class="coroner-body"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="parlor-foot">
+  <p>MEDIUM reads bytes and cites them. It does not channel spirits, guess, or
+  invent. Where the bytes are silent it says <em>unknown</em>.</p>
+</footer>
+<script src="./app.js"></script>
+</body>
+</html>
