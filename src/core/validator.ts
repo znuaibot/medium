@@ -16,7 +16,7 @@ export type ValidationResult =
   | { ok: false; receipt: ExorcismReceipt };
 
 function receipt(claimId: string, code: ExorcismReceipt["code"], reason: string, evidenceId?: string): ValidationResult {
-  const r: ExorcismReceipt = { claimId, code, reason, at: new Date().toISOString() };
+  const r: ExorcismReceipt = { claimId, code, reason };
   if (evidenceId !== undefined) r.evidenceId = evidenceId;
   return { ok: false, receipt: r };
 }

@@ -43,7 +43,8 @@ export interface ExorcismReceipt {
     | "ARTIFACT_MISMATCH"
     | "INFERENCE_STEP_MISSING";
   reason: string;
-  at: string;
+  // NOTE: no wall-clock timestamp here — the validator is part of the
+  // deterministic core; callers timestamp when they render the log.
 }
 
 export class Ledger {
