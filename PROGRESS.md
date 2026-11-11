@@ -28,7 +28,7 @@ Status date: 2026-11-12. Deadline: 2026-12-04 14:00 PT. Feature freeze: 2026-12-
 - [ ] src/vm/glass-vm.ts (<=200 lines): deterministic step, 4KB memory view,
       registers, snapshot freeze + hash, replay
 - [ ] src/cartridges/: 1987-hypernote, 1992-crypt-keeper, corrupted-telemetry
-- [ ] src/coroner/static-inspector.ts: magic bytes, strings table, entropy, hex slices
+- [x] src/coroner/static-inspector.ts: magic bytes, strings table, entropy, hex slices
 - [ ] Verification: scripts/e2e.mjs — inspect -> run -> read memory -> ask ->
       verified claim -> forged claim intercepted (exit 0, log archived)
 

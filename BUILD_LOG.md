@@ -31,3 +31,7 @@
   recorded; design.md updated mentally, file edit pending).
 - Next (vertical slice, per critic): Coroner PNG/ZIP/raw inspector -> evidence
   chips on a rendered screen. Crew App checkpoint 2026-11-22.
+- Vertical-slice backend: Coroner static inspector (PNG tEXt / ZIP comment /
+  strings / entropy / safe truncated-chunk reporting). Autopsy findings convert
+  to evidence records that pass the exorcism gate; forged bytes are caught.
+  28/28 tests. Remaining for the slice: UI rendering (Gate 4).
