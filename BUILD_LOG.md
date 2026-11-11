@@ -15,3 +15,19 @@
 - Risks logged: see COMPLIANCE.md and PROGRESS.md. Open questions for build:
   exact GlassVM instruction set (keep <=20 ops); cartridge lore authorship via
   three-agent build-time crew; hook schema compatibility notes for Kiro.
+
+## 2026-11-12 (evening)
+- Three-role deliberation completed (strategist / critical advisor / domain
+  expert). Verdicts adjudicated into steering + PROJECT.md. Notable catches:
+  the critic killed two factually sloppy narrative claims (fictional machine
+  provenance, "lost algorithm"); the domain expert forced the easter-egg
+  containment + oracle-probing rules; PBT caught a real wall-clock leak in
+  ExorcismReceipts the same day (receipts are now deterministic; callers
+  timestamp logs).
+- Gate 2 part 1 green: GlassVM (21 ops, 4KB, snapshots, call stack), ISA,
+  assembler. 23/23 tests. Call-stack pointer originally collided with its own
+  push region (0xEF) — caught by tests, moved to 0xFF.
+- ISA encoding correction: immediate ops are 2 bytes (spec refinement
+  recorded; design.md updated mentally, file edit pending).
+- Next (vertical slice, per critic): Coroner PNG/ZIP/raw inspector -> evidence
+  chips on a rendered screen. Crew App checkpoint 2026-11-22.

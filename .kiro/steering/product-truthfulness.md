@@ -33,6 +33,26 @@ Every user-visible claim carries exactly one status label:
 - The product must fully work offline with no API key. The LLM is an optional,
   validated enhancement layer, never load-bearing.
 
+## Tone rule (post-review, 2026-11-12)
+
+Our defensible claim is "**every assertion is checkable**" — a demonstrable
+engineering property. "We are the only honest project" is an unverifiable
+moral claim that implies accusations against other entrants. Honesty is a
+quiet property of the machine, never a war cry, never a headline.
+
+## Easter-egg containment rule
+
+Demo secrets (passcodes, hidden lore) may exist ONLY in machine-state-reachable
+locations (decrypted in memory by key sequences), never in any prompt context.
+Otherwise the Exorcist Gate only catches stupid models and a judge who asks
+"would your gate catch a model that saw the system prompt?" wins.
+
+## Oracle-probing guard
+
+The validator must not be usable as a free search engine for offset probing:
+rate-limit or budget validation attempts per séance session (mechanism
+documented before Gate 4).
+
 ## Engineering ratchet
 
 - Max 220 lines per source file; split at 180.

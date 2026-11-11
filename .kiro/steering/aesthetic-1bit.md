@@ -34,6 +34,18 @@ emoji as UI icons, no centered hero with pill badge.
   Master mute + "silence the dead" toggle. Zero audio files, zero copyrighted
   material.
 
+## Cognitive states are materials, not labels (post-review, 2026-11-12)
+
+The three truth states render as TEXTURE, primarily in the evidence panel:
+- `verified` = clean solid pixels (candlelight clarity)
+- `inferred` = halftone / dithered region (shadow)
+- `unknown` = static / snow / torn-image glitch (mist)
+Corrupted memory shows as static on the machine surface itself. The main
+screen never displays the word UNKNOWN — the evidence panel speaks like a
+coroner's report; the picture simply carries the damage. "No ghost responds"
+(an unrecognizable or living file) is a themed, graceful séance failure,
+never an error dialog.
+
 ## Accessibility and responsiveness (modern-use floor)
 
 - Contrast >= 4.5:1 for all text (ink on paper is ~15:1).
