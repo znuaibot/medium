@@ -14,7 +14,8 @@
     "pbt": "node --test test/pbt.evidence.test.ts",
     "build": "node scripts/build.mjs",
     "e2e": "node scripts/e2e.mjs",
-    "preflight": "node scripts/preflight.mjs"
+    "preflight": "node scripts/preflight.mjs",
+    "audit": "node scripts/audit.mjs"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",

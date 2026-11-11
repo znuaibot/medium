@@ -105,6 +105,10 @@ export class GlassVm {
       }
       case 0x13: this.a = (this.a << 1) & 0xff; this.setFlags(false, this.a === 0); break;
       case 0x14: this.a = this.a >>> 1; this.setFlags(false, this.a === 0); break;
+      case 0x15: this.a = this.mem[(addr + this.x) & 0xfff]!; break;
+      case 0x16: this.mem[(addr + this.x) & 0xfff] = this.a; break;
+      case 0x17: { const r = this.a - this.mem[addr]!; this.setFlags(r < 0, r === 0); break; }
+      case 0x18: this.x = (this.x + 1) & 0xff; this.setFlags(false, this.x === 0); break;
     }
     if (ev) this.events.push(ev);
     return ev;

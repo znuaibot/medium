@@ -18,10 +18,16 @@ no executable code from us inside the artifact.
 ## The GlassVM
 
 - 4096-byte linear RAM (`Uint8Array(4096)`), memory-mapped regions:
-  `0x0000-0x00FF` zero page (system state), `0x0100-0x03FF` program data,
-  `0x0400-0x07FF` screen framebuffer (128x64 1-bit = 1024 bytes), rest general.
+  `0x0000-0x00FF` zero page (system state; call-stack pointer at 0x00FF),
+  `0x0100-0x01FF` cartridge lore data, `0x0200-0x03FF` program,
+  `0x0400-0x07FF` screen: 64x16 memory-mapped character cells (one ASCII byte
+  per cell; the UI renders glyphs in 1-bit style), `0x0800-0x0FFF` general
+  (telemetry logs, decoded messages).
 - 16-bit PC, 8-bit A/X/Y registers, 8 flags packed in one byte.
-- <=20 instructions (load/store/arith/branch/call/syscall for screen & input).
+- 25 instructions (load/store incl. X-indexed, INX, arith, memory compare,
+  branch, call, syscall); implied ops 1 byte, immediate ops 2 bytes, address
+  ops 3 bytes (op + addr16 little-endian). Call-stack pointer at 0x00FF;
+  frames grow down from 0x00FE, max 7 deep.
 - `snapshot()` -> hash over state; `step(n)`, `freeze()`, `restore(snapshot)`.
 - The full state lives in typed arrays reachable from JS: every byte the
   machine "thinks" is inspectable — this transparency IS the séance.

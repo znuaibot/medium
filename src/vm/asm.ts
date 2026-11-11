@@ -31,7 +31,15 @@ export function assemble(lines: AsmLine[], loadAt = 0x0200): Uint8Array {
       continue;
     }
     const info = BY_NAME.get(name.toUpperCase());
-    if (!info) throw new Error(`unknown mnemonic: ${name}`);
+    if (!info) {
+      const near = [...BY_NAME.keys()].filter((k) => {
+        let d = 0;
+        const a = name.toUpperCase(), b = k;
+        for (let i = 0; i < Math.max(a.length, b.length); i++) if (a[i] !== b[i]) d++;
+        return d <= 2;
+      }).slice(0, 3).join(", ");
+      throw new Error(`unknown mnemonic: ${name}${near ? ` — did you mean ${near}?` : ""}`);
+    }
     pc += info.size;
   }
 

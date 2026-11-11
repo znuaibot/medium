@@ -41,6 +41,10 @@ export const OPS: Record<number, OpInfo> = {
   0x12: { name: "SYS", size: 2, immediate: true },
   0x13: { name: "SHL", size: 1 },
   0x14: { name: "SHR", size: 1 },
+  0x15: { name: "LDAX", size: 3, address: true }, // A = mem[addr + X]
+  0x16: { name: "STAX", size: 3, address: true }, // mem[addr + X] = A
+  0x17: { name: "CMPM", size: 3, address: true }, // flags from A - mem[addr]
+  0x18: { name: "INX", size: 1 }, // X = (X + 1) & 0xff, Z flag on wrap
 };
 
 export const SYS = { HALT: 0, READKEY: 1, TONE: 2 } as const;
