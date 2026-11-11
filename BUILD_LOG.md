@@ -35,3 +35,14 @@
   strings / entropy / safe truncated-chunk reporting). Autopsy findings convert
   to evidence records that pass the exorcism gate; forged bytes are caught.
   28/28 tests. Remaining for the slice: UI rendering (Gate 4).
+
+## 2026-11-12 (night)
+- Gate 4 green in a real browser (ego-browser drive): VERIFIED séance answers
+  with evidence chips, chip hover -> memory-grid highlight, hallucination trap
+  intercepted into the public gate log, telemetry cartridge answers UNKNOWN on
+  its dead sector, certificate export runs clean, zero console errors.
+  Bug caught in acceptance: deps.engine was never assigned (silent no-op on
+  click) and the trap button rendered twice — both fixed.
+- ISA grew to 25 ops during cartridge work (LDAX/STAX/CMPM/INX) — spec updated
+  same commit each time. Retro fixes: COMPETITION.md rules digest, audit.mjs
+  guardrails, assembler near-miss suggestions.

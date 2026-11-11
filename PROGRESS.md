@@ -47,7 +47,7 @@ Status date: 2026-11-12. Deadline: 2026-12-04 14:00 PT. Feature freeze: 2026-12-
 - [ ] Verification: `npm run build` zero warnings, static bundle served, console clean
 
 ## Gate 5 — Certificate of Seance export (replayable single-file archive)  [ ] open
-- [ ] Archivist: export self-contained HTML (styles, 1-bit screenshot, evidence
+- [x] Archivist: export self-contained HTML (styles, evidence
       table, snapshot hashes, replay packet)
 - [ ] Re-import: drag certificate back -> exact memory state restored
 - [ ] Verification: round-trip e2e in scripts/e2e.mjs
